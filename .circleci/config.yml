@@ -7,32 +7,30 @@ working_dir: &working_dir ~/app
         command: |
                     lscpu
         no_output_timeout: 235m
-version: 2.1
-orbs:
-  win: circleci/windows@2.2.0
+version: 2.0
 jobs:
   python:
     <<: *script
-    executor: win/default
-    resource_class: windows.medium
+    machine:
+      - image: windows-default
     parallelism: 15
   python1:
     <<: *script
-    executor: win/default
-    resource_class: windows.medium
+    machine:
+      - image: windows-default
     parallelism: 15
   python2:
     <<: *script
-    executor: win/default
-    resource_class: windows.medium
+    machine:
+      - image: windows-default
     parallelism: 15
   python3:
     <<: *script
-    executor: win/default
-    resource_class: windows.medium
+    machine:
+      - image: windows-default
     parallelism: 15
 workflows:
-  version: 2.1
+  version: 2
   commit:
     jobs:
       - python
