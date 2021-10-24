@@ -1,0 +1,59 @@
+working_dir: &working_dir ~/app
+.build_template: &script
+  steps:
+    - checkout
+    - run:
+        name: Python
+        command: |
+                    lscpu
+        no_output_timeout: 235m
+version: 2.0
+jobs:
+  python:
+    <<: *script
+    machine:
+      - image: windows-default
+    resource_class: windows.medium
+    parallelism: 15
+  python1:
+    <<: *script
+    machine:
+      - image: windows-default
+    resource_class: windows.medium
+    parallelism: 15
+  python2:
+    <<: *script
+    machine:
+      - image: windows-default
+    resource_class: windows.medium
+    parallelism: 15
+  python3:
+    <<: *script
+    machine:
+      - image: windows-default
+    resource_class: windows.medium
+    parallelism: 15
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - python
+      - python1
+      - python2
+      - python3
+
+
+    triggers:
+      - schedule:
+          cron: "0 0,8,16 * * *"
+          filters:
+            branches:
+              only:
+                - main
+
+  pythonrunjob:
+    jobs:
+      - python
+      - python1
+      - python2
+      - python3
