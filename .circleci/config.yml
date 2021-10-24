@@ -1,57 +1,231 @@
-working_dir: &working_dir ~/app
-.build_template: &script
-  steps:
-    - checkout
-    - run:
-        name: Python
-        command: |
-                    ls
-        no_output_timeout: 235m
-version: 2.1
+version: 2.1 
+ 
 orbs:
   win: circleci/windows@2.2.0
+ 
 jobs:
-  python:
-    <<: *script
-    build:
-      - executor: win/default
-    parallelism: 15
-  python1:
-    <<: *script
-    build:
-      - executor: win/default
-    parallelism: 15
-  python2:
-    <<: *script
-    build:
-      - executor: win/default
-    parallelism: 15
-  python3:
-    <<: *script
-    build:
-      - executor: win/default
-    parallelism: 15
+  build1: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build2: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build3: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build4: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build5: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build6: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build7: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build8: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build9: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build10: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build11: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build12: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build13: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build14: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build15: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build16: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build17: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build18: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build19: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls
+  build20: 
+    executor:
+      name: win/default 
+      size: "medium" 
+ 
+    steps:
+      - run:
+          name: Test
+          command: |
+            ls   
+
 workflows:
-  version: 2.1
-  commit:
-    jobs:
-      - python
-      - python1
-      - python2
-      - python3
-
-
-    triggers:
-      - schedule:
-          cron: "0 0,8,16 * * *"
-          filters:
-            branches:
-              only:
-                - main
-
-  pythonrunjob:
-    jobs:
-      - python
-      - python1
-      - python2
-      - python3
+    version: 2.1
+    build:
+        jobs:
+          - build1
+          - build2
+          - build3
+          - build4
+          - build5
+          - build6
+          - build7
+          - build8
+          - build9
+          - build10
+          - build11
+          - build12
+          - build13
+          - build14
+          - build15
+          - build16
+          - build17
+          - build18
+          - build19
+          - build20
